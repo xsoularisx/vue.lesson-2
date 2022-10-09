@@ -1,14 +1,14 @@
 <template>
   <form class="form">
-    <input class="form-input" type="text" name="date" id="date" placeholder="payment date">
-    <input class="form-input" type="text" name="category" id="category" placeholder="payment category"
-      v-model="selected">
-    <select class="select" v-model="selected">
+    <input v-model="date" class="form-input" type="text" name="date" id="date" placeholder="payment date">
+    <input v-model="category" class="form-input" type="text" name="category" id="category"
+      placeholder="payment category">
+    <select class="select" v-model="category">
       <option disabled value="">Select payment description</option>
       <option v-for="item in list">{{item}}</option>
     </select>
-    <input class="form-input" type="text" name="value" id="value" placeholder="payment amount">
-    <div class="form-button">ADD</div>
+    <input v-model.number="value" class="form-input" type="text" name="value" id="value" placeholder="payment amount">
+    <div v-on:click="addUserData" class="form-button">ADD</div>
   </form>
 
 </template>
@@ -17,7 +17,18 @@ export default {
   name: 'Addform',
   data() {
     return {
-      selected: '',
+      date: '',
+      category: '',
+      value: '',
+    }
+  },
+  methods: {
+    addUserData() {
+      this.$emit('addUserData', {
+        date: this.date,
+        category: this.category,
+        value: this.value,
+      })
     }
   },
   computed: {
@@ -34,6 +45,7 @@ export default {
 
 <style lang="scss">
 .form {
+  box-sizing: border-box;
   width: 600px;
   margin: 0 auto;
   display: flex;

@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>my personal costs</h1>
     <AddButton v-on:clickButton="toggleForm"></AddButton>
-    <AddForm v-if="formActive"></AddForm>
+    <AddForm v-if="formActive" v-on:addUserData="addUserData"></AddForm>
     <AddList></AddList>
   </div>
 </template>
@@ -28,6 +28,9 @@ export default {
   methods: {
     toggleForm() {
       this.formActive = !this.formActive
+    },
+    addUserData(data) {
+      this.$store.commit('setUserData', data)
     }
   },
   mounted() {

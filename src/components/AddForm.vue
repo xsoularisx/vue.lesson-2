@@ -39,7 +39,14 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('loadCategories')
+    this.$store.dispatch('loadCategories');
+
+    if (this.$route.params.category) {
+      this.category = this.$route.params.category;
+    }
+    if (this.$route.params.value) {
+      this.value = this.$route.params.value;
+    }
   }
 }
 

@@ -9,9 +9,21 @@ const routes = [
     name: 'home',
   },
   {
+    path: '/add/:category?/:value?',
+    name: 'add',
+  },
+  {
     path: '/about',
     name: 'about',
     component: function () {
+      return import('../views/aboutPage.vue')
+    }
+  },
+  {
+    path: '*',
+    name: 'error404',
+    component: function () {
+      return import('../views/error404Page.vue')
     }
   }
 ]

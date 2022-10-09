@@ -69,6 +69,7 @@ export default {
 .list-head {
   box-sizing: border-box;
   width: 600px;
+  padding: 0;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

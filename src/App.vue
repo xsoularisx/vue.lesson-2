@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      formActive: true,
+      formActive: false,
     }
   },
   methods: {

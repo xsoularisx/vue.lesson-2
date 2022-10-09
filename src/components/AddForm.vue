@@ -17,6 +17,7 @@ export default {
   name: 'Addform',
   data() {
     return {
+      // id: 1,
       date: '',
       category: '',
       value: '',
@@ -25,6 +26,7 @@ export default {
   methods: {
     addUserData() {
       this.$emit('addUserData', {
+        // id: this.id++,
         date: this.date,
         category: this.category,
         value: this.value,

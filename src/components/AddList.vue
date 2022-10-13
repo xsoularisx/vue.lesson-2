@@ -1,5 +1,9 @@
 <template>
   <div>
+    <button class="modal-window" v-on:click="$modal.show('edit')"> modal window</button>
+    <AddModal v-bind:name="'edit'">
+      <AddEditForm></AddEditForm>
+    </AddModal>
     <ul class="list-head">
       <li>#</li>
       <li>Date</li>
@@ -22,10 +26,12 @@
 
 <script>
 import AddUserDataList from './AddUserDataList.vue';
+import AddModal from './AddModal.vue';
+import AddEditForm from './AddEditForm.vue';
 
 export default {
   name: "AddList",
-  components: { AddUserDataList },
+  components: { AddUserDataList, AddModal, AddEditForm },
   data() {
     return {
       pageNumber: 0,
@@ -44,7 +50,7 @@ export default {
     },
     prevPage() {
       this.pageNumber--;
-    }
+    },
   },
   computed: {
     list() {
@@ -99,5 +105,12 @@ export default {
     width: 200px;
     cursor: pointer;
   }
+}
+
+.modal-window {
+  height: 25px;
+  width: 200px;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 </style>
